@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"  href="{{url_for('static',filename='dnrchoose.css')}}">
+</head>
+<body>
+
+<div class="header">
+  <h2>DonorsChoose</h2>
+</div>
+
+<div class="row">
+  <div class="column side" style="background-color:#aaa;">
+    <h3>Problem Statement:</h3>
+    <p>DonorsChoose is Kaggle Competition in which we need to predict 
+      whether the project proposed by a teacher is accepted or not based on the data given</p>
+    <h3>End Goal:</h3>
+    <p>Our End Goal is to build a model that predicts the approval of the project proposed by the teacher with more accuracy</p>  
+  </div>
+  <div class="column middle" style="background-color:#bbb;">
+    <h3>Data Description:</h3>
+    <p>The following is the Description of data that is used to build our model</p>
+    <table style="width: 100%;">
+      <tr>
+        <td>project_title</td>
+        <td>Title of the project</td>
+      </tr>
+      <tr>
+        <td>project_grade_category</td>
+        <td>Grade level of students for which the project is targeted</td>
+      </tr>
+      <tr>
+        <td>project_subject_subcategories</td>
+        <td>One or more(comma-seperated) subject sub categories for the project</td>
+      </tr>
+      <tr>
+        <td>project_essay_1</td>
+        <td>First application essay</td>
+      </tr>
+      <tr>
+        <td>project_essay_2</td>
+        <td>Second application essay</td>
+      </tr>
+      <tr>
+        <td>teacher_number_of_previously_posted_projects</td>
+        <td>Number of project applications previously submitted by the same teacher</td>
+      </tr>
+    </table>
+  </div>
+  <div class="column side" style="background-color:#ccc;">
+    <h3>Prediction</h3>
+    <form action="/prediction" method="POST">
+    <label for="input-grade">Grade</label>  
+    <select name='project_grade_category' id="input-grade">
+      <option value=''>Grade</option>
+      <option value='0'>Grades PreK-2</option>
+      <option value='1'>Grades 3-5</option>
+      <option value='2'>Grades 6-8</option>
+      <option value='3'>Grades 9-12</option>
+    <br>  
+    <label for="input-grade">Previous Projects Submitted</label>   
+    <input type="number" name="teacher_number_of_previously_posted_projects" placeholder="Previous Projects Submitted" min="0" required="required"/>      
+    <br>
+    <label for="input-grade">Title</label>
+    <input type="text" name="project_title" placeholder="Title" required="required"/>
+    <br>
+    <label for="input-grade">Subject</label> 
+    <input type="text" name="project_subject_subcategories" placeholder="Subject" required="required"/>
+    <br>
+    <label for="input-grade">Essay1</label>
+    <input type="text" name="project_essay_1" placeholder="Essay1" required="required"/>
+    <br>
+    <label for="input-grade">Essay2</label>
+    <input type="text" name="project_essay_2" placeholder="Essay2" required="required"/>
+    <br>
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    <br>
+    </form>
+    <h3>{{prediction}}</h3>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Thank You!!!</p>
+</div>
+
+</body>
+</html>
