@@ -18,12 +18,11 @@ from keras.preprocessing.sequence import pad_sequences
 import os
     
 app = Flask(__name__, template_folder="template")
-filename = os.getcwd()
-print(filename)
-p = 'test.h5'
+# filename = os.getcwd()
+# print(filename)
+# p = 'test.h5'
 #model_path = os.path.join(filename,p)
-model=load_model(p) 
-#dnr=load_model('') 
+model=load_model('./test.h5')  
 
 @app.route("/", methods=["GET"])
 def home():
