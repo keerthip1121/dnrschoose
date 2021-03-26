@@ -20,7 +20,7 @@ import os
 app = Flask(__name__, template_folder="template")
 filename = os.getcwd()
 print(filename)
-p = 'D:/internship/donorchoose/test.h5'
+p = 'test.h5'
 #model_path = os.path.join(filename,p)
 model=load_model(p) 
 #dnr=load_model('') 
